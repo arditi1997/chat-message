@@ -42,7 +42,7 @@ public class CustomLoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
             roles.add(a.getAuthority());
         }
 
-        if (roles.contains("ROLE_USER")) {
+        if (roles.contains("USER")) {
             url = "/rooms";
         }
         return url;

@@ -30,15 +30,20 @@ public class UserServiceImpl implements UserService {
         Optional<User> userFound = userRepository.findByUserNameAndEmail(user.getUserName(), user.getEmail());
         if(!userFound.isEmpty())
             throw new CustomException(ErrorCode.USER_ALREADY_REGISTERED, ErrorCode.USER_ALREADY_REGISTERED.getMessage());
-        Optional<Role> role = roleRepository.findByName("ROLE_USER");
+        Optional<Role> role = roleRepository.findByName("USER");
         user.setRole(role.get());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
-
     }
 
     @Override
     public List<User> getUsers() {
        return userRepository.findAll();
+    }
+
+    @Override
+    public User findByUsername(String username) {
+        return userRepository.findByUserName(username).orElseThrow(() ->
+                new CustomException(ErrorCode.USER_NOT_FOUND, ErrorCode.USER_NOT_FOUND.getMessage()));
     }
 }

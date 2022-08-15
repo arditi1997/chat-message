@@ -3,6 +3,8 @@ package com.chat.message.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document
 public class User {
     @Id
@@ -14,6 +16,15 @@ public class User {
     private String password;
     private String token;
     private Role role;
+    private List<Room> roomList;
+
+    public List<Room> getRoomList() {
+        return roomList;
+    }
+
+    public void setRoomList(List<Room> roomList) {
+        this.roomList = roomList;
+    }
 
     public String getId() {
         return id;

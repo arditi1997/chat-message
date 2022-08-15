@@ -15,15 +15,14 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
-	implementation group: 'org.springframework.security', name: 'spring-security-web', version: '5.7.0'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.7.1'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb', version: '2.7.2'
 	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
-	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.7.1'
 	implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.7.1'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-websocket', version: '2.7.2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-springsecurity5', version: '3.0.4.RELEASE'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.7.1'
 
 }
