@@ -1,4 +1,4 @@
-package com.chat.message.config.auth;
+package com.chat.message.config;
 
 
 import org.springframework.context.annotation.Configuration;

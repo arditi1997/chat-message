@@ -1,4 +1,4 @@
-package com.chat.message.config.auth;
+package com.chat.message.config;
 
 import com.chat.message.model.Role;
 import com.chat.message.model.User;

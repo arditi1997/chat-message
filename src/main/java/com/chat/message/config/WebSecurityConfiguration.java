@@ -1,4 +1,4 @@
-package com.chat.message.config.auth;
+package com.chat.message.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
