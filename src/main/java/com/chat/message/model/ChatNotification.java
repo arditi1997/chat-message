@@ -7,13 +7,29 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ChatNotification {
     @Id
     private String id;
-    private String senderId;
-    private String receiverId;
+    private User sender;
+    private User receiver;
 
-    public ChatNotification(String id, String senderId, String receiverId) {
+    public ChatNotification(String id, User sender, User receiver) {
         this.id = id;
-        this.senderId = senderId;
-        this.receiverId = receiverId;
+        this.sender = sender;
+        this.receiver = receiver;
+    }
+
+    public User getSender() {
+        return sender;
+    }
+
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
+
+    public User getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(User receiver) {
+        this.receiver = receiver;
     }
 
     public String getId() {
@@ -22,21 +38,5 @@ public class ChatNotification {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getSenderId() {
-        return senderId;
-    }
-
-    public void setSenderId(String senderId) {
-        this.senderId = senderId;
-    }
-
-    public String getReceiverId() {
-        return receiverId;
-    }
-
-    public void setReceiverId(String receiverId) {
-        this.receiverId = receiverId;
     }
 }
