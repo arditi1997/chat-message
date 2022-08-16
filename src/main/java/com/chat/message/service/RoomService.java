@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface RoomService {
      void addUserToRoom(String roomId, Principal principal);
      void createRoom(Room room);
+     List<Room> getRooms();
 }

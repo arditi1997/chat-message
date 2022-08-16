@@ -33,9 +33,8 @@ public class RoomController {
     private RoomService roomService;
 
     @GetMapping("/all-rooms")
-    public ResponseEntity<List<User>> getUsers(){
-        List<User> users =  users = userService.getUsers();
-        return new ResponseEntity<>(users, HttpStatus.OK);
+    public ResponseEntity<?> getRooms(){
+        return new ResponseEntity<>(roomService.getRooms(), HttpStatus.OK);
     }
 
     @MessageMapping("/chat.create-room")

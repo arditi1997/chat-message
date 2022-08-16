@@ -30,8 +30,9 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public void sendPrivateAndSave(String to, Message message) {
-        messagingTemplate.convertAndSend("topic/messages/private" + to, message);
-        message.setTo(to);
+        User user = userRepository.findByUserName(to).orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND, ErrorCode.USER_NOT_FOUND.getMessage()));
+        messagingTemplate.convertAndSend("topic/messages/private" + user.getUserName(), message);
+        message.setTo(user);
         messageRepository.save(message);
     }
 
@@ -48,8 +49,9 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public void sendPublicAndSave(String to, Message message) {
-        messagingTemplate.convertAndSend("topic/messages/public" + to, message);
-        message.setTo(to);
+        User user = userRepository.findByUserName(to).orElseThrow(() -> new CustomException(ErrorCode.USER_NOT_FOUND, ErrorCode.USER_NOT_FOUND.getMessage()));
+        messagingTemplate.convertAndSend("topic/messages/public" + user.getUserName(), message);
+        message.setTo(user);
         messageRepository.save(message);
     }
 

@@ -13,19 +13,36 @@ import java.util.Date;
 public class Message {
     @Id
     private String id;
-    private String from;
+    private User from;
     private String roomId;
-    private String to;
+    private User to;
     private String content;
     @CreatedDate
     private Date dateTime;
     private MessageType messageType;
 
-    public String getTo() {
+
+    public User getFrom() {
+        return from;
+    }
+
+    public void setFrom(User from) {
+        this.from = from;
+    }
+
+    public String getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
+    }
+
+    public User getTo() {
         return to;
     }
 
-    public void setTo(String to) {
+    public void setTo(User to) {
         this.to = to;
     }
 
@@ -35,14 +52,6 @@ public class Message {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public String getFrom() {
-        return from;
-    }
-
-    public void setFrom(String from) {
-        this.from = from;
     }
 
     public String getContent() {

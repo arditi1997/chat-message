@@ -3,6 +3,7 @@ package com.chat.message.service.impl;
 import com.chat.message.exception.CustomException;
 import com.chat.message.exception.ErrorCode;
 import com.chat.message.model.Role;
+import com.chat.message.model.RoleEnum;
 import com.chat.message.model.User;
 import com.chat.message.repository.RoleRepository;
 import com.chat.message.repository.UserRepository;
@@ -30,7 +31,7 @@ public class UserServiceImpl implements UserService {
         Optional<User> userFound = userRepository.findByUserNameAndEmail(user.getUserName(), user.getEmail());
         if(!userFound.isEmpty())
             throw new CustomException(ErrorCode.USER_ALREADY_REGISTERED, ErrorCode.USER_ALREADY_REGISTERED.getMessage());
-        Optional<Role> role = roleRepository.findByName("USER");
+        Optional<Role> role = roleRepository.findByName(RoleEnum.USER.getValue());
         user.setRole(role.get());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
